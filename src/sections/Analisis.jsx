@@ -6,6 +6,8 @@ import { BasicChart } from '../charts/BasicChart';
 import { PieChart } from '../charts/PieChart';
 import { BrushChart } from '../charts/BrushChart';
 import WordCloudComponent from '../charts/WordCoud';
+import { FrecuencyTable } from '../visualizer/FrecuencyTable';
+import { countOccurrencesByWord, countOccurrencesByWordByTopDate } from '../util/Util';
 
 export const Analisis = ({
     data = [],
@@ -20,6 +22,8 @@ export const Analisis = ({
     amountPer12Month,
     amountPerHour,
 }) => {
+    const wordFrecuncyOnDays = countOccurrencesByWordByTopDate(data);
+    
     return (
         <>
             <div className='pb-10'>
@@ -54,7 +58,11 @@ export const Analisis = ({
                 />
             </div>
             <div className='pb-10 flex justify-between'>
-                <PieChart dataset={data} title={"Top 10 emojis"} desc={"Los Emojis mas usados en la conversacion"} />
+                <PieChart
+                    dataset={data}
+                    title={'Top 10 emojis'}
+                    desc={'Los Emojis mas usados en la conversacion'}
+                />
                 <BasicChart
                     title={'Top 10 Multimedia'}
                     desc={
@@ -65,7 +73,6 @@ export const Analisis = ({
                 />
             </div>
             <div className='pb-10 flex justify-between'>
-               
                 <BasicChart
                     title={'Top 10 Fechas activas'}
                     desc={'Top de las 10 fechas más activas'}
@@ -80,7 +87,6 @@ export const Analisis = ({
                 />
             </div>
             <div className='pb-10 flex justify-between'>
-                
                 <BasicChart
                     title={'Actividad por Meses'}
                     desc={'Actividad de los ultimos 12 meses'}
@@ -95,10 +101,68 @@ export const Analisis = ({
                 />
             </div>
             <div className='pb-10 flex justify-center'>
-                <BrushChart title={"Actividad por días"} desc={"Cantidad de mensajes por día"} dataset={data}/>
+                <BrushChart
+                    title={'Actividad por días'}
+                    desc={'Cantidad de mensajes por día'}
+                    dataset={data}
+                />
             </div>
             <div className='pb-10 flex justify-between'>
                 <WordCloudComponent />
+            </div>
+
+            <div className='pb-10 flex justify-between'>
+                <FrecuencyTable
+                    title={'Frecuencia de palabras'}
+                    desc={'Las palabras mas frecuentes en todo el chat'}
+                    data={countOccurrencesByWord(data)}
+                />
+
+                <FrecuencyTable
+                    title={'Frecuencia de palabras por dias'}
+                    desc={
+                        'Las palabras mas frecuentes del dia ' +
+                        wordFrecuncyOnDays[0].date
+                    }
+                    data={wordFrecuncyOnDays[0].words}
+                />
+            </div>
+            <div className='pb-10 flex justify-between'>
+            <FrecuencyTable
+                    title={'Frecuencia de palabras por dias'}
+                    desc={
+                        'Las palabras mas frecuentes del dia ' +
+                        wordFrecuncyOnDays[1].date
+                    }
+                    data={wordFrecuncyOnDays[1].words}
+                />
+
+                <FrecuencyTable
+                    title={'Frecuencia de palabras por dias'}
+                    desc={
+                        'Las palabras mas frecuentes del dia ' +
+                        wordFrecuncyOnDays[2].date
+                    }
+                    data={wordFrecuncyOnDays[2].words}
+                />
+            </div>
+            <div className='pb-10 flex justify-between'>
+            <FrecuencyTable
+                    title={'Frecuencia de palabras por dias'}
+                    desc={
+                        'Las palabras mas frecuentes del dia ' +
+                        wordFrecuncyOnDays[3].date
+                    }
+                    data={wordFrecuncyOnDays[3].words}
+                />
+                <FrecuencyTable
+                    title={'Frecuencia de palabras por dias'}
+                    desc={
+                        'Las palabras mas frecuentes del dia ' +
+                        wordFrecuncyOnDays[4].date
+                    }
+                    data={wordFrecuncyOnDays[4].words}
+                />
             </div>
         </>
     );

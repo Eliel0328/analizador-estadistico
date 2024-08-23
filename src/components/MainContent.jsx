@@ -6,10 +6,6 @@ import {
     countOccurrencesByMonth,
     countOccurrencesByName,
 
-    countOccurrencesByWord,
-
-    countOccurrencesByWordByTopDate,
-
     countOccurrencesByYear,
 
     getDateTimeForBrushChar,
@@ -130,6 +126,8 @@ export const MainContent = () => {
                                 statsForAuthors={generalStatsForAuthors}
                                 seriesTop={top}
                                 seriesDays={days}
+                                pieSeries={pieSeries}
+                                pieLabels={pieLabels}
                                 topMultimedia={topMultimedia}
                                 topDate={topDate}
                                 amountPerYear={amountPerYear}

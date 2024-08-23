@@ -281,7 +281,7 @@ export const countOccurrencesByWordByTopDate = (data) => {
         return { date: dateObj.date, words: topWords };
     });
 
-    return null;
+    return wordCloudsByDate;
 };
 
 export const getTop10Emojis = (data = []) => {
