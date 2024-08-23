@@ -5,6 +5,7 @@ import { DashboardStats } from '../visualizer/DashboardStats';
 import { BasicChart } from '../charts/BasicChart';
 import { PieChart } from '../charts/PieChart';
 import { BrushChart } from '../charts/BrushChart';
+import WordCloudComponent from '../charts/WordCoud';
 
 export const Analisis = ({
     data = [],
@@ -95,11 +96,11 @@ export const Analisis = ({
                     isUsuario={false}
                 />
             </div>
-            <div className='pb-10 flex justify-between'>
-                
-            </div>
             <div className='pb-10 flex justify-center'>
-                <BrushChart />
+                <BrushChart title={"Actividad por días"} desc={"Cantidad de mensajes por día"} dataset={data}/>
+            </div>
+            <div className='pb-10 flex justify-between'>
+                <WordCloudComponent />
             </div>
         </>
     );

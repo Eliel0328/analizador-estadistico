@@ -10,7 +10,6 @@ export const BasicChart = ({ title, desc, series = [], isUsuario }) => {
             colors: ['#1A56DB', '#FDBA8C'],
             chart: {
                 type: 'bar',
-
                 toolbar: {
                     show: false,
                 },

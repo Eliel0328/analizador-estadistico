@@ -111,18 +111,54 @@ code {
 }
 /* ********************************************************************** */
 
-
-
 #wrapper {
     position: relative;
     background: #000524;
     border: 1px solid #000;
     box-shadow: 0 22px 35px -16px rgba(0, 0, 0, 0.71);
-    max-width: 850px;
+    /* max-width: 900px; */
     margin: 0 auto;
-  }
-  
-  #chart-bar {
+}
+
+#chart-bar {
     position: relative;
     margin-top: -38px;
+}
+
+/* ******************************************************************* */
+.wordcloud {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+.wordcloud svg {
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.wordcloud label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 8px;
+}
+.wordcloud textarea {
+    min-height: 100px;
+}
+
+
+.word-cloud {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    overflow: hidden;
   }
+  
+  .word {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    color: #007BFF;
+    white-space: nowrap;
+  }
+  

@@ -4,7 +4,7 @@ export const CargarArchivo = ({ changeHandler }) => {
     const [file, setFile] = useState(null);
 
     const handleFileChange = (event) => {
-        setFile(event.target.files);
+        setFile(event.target.files[0]);
     };
 
     const handleAnalysis = () => {
@@ -12,7 +12,7 @@ export const CargarArchivo = ({ changeHandler }) => {
             console.log('Iniciar análisis del archivo:', file.name);
             changeHandler(file);
         } else {
-            alert('Por favor, cargue un archivo CSV primero.');
+            alert('Por favor, cargue un archivo primero.');
         }
     };
 
@@ -33,7 +33,7 @@ export const CargarArchivo = ({ changeHandler }) => {
                 <input
                     id='file-upload'
                     type='file'
-                    accept='.csv'
+                    accept='.csv,.txt'
                     className='hidden'
                     onChange={handleFileChange}
                 />
