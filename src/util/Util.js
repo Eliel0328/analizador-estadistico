@@ -242,8 +242,6 @@ export const countOccurrencesByWordByTopDate = (data) => {
     // Seleccionar las fechas más frecuentes (por ejemplo, las top 5)
     const topDates = dateArray.slice(0, 5);
 
-    console.log(topDates);
-
     const countWordFrequency = (data) => {
         const wordCounts = {};
 
@@ -282,8 +280,6 @@ export const countOccurrencesByWordByTopDate = (data) => {
 
         return { date: dateObj.date, words: topWords };
     });
-
-    console.log(wordCloudsByDate);
 
     return null;
 };

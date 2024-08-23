@@ -14,8 +14,6 @@ export const Analisis = ({
     statsForAuthors,
     seriesTop,
     seriesDays,
-    pieSeries,
-    pieLabels,
     topMultimedia,
     topDate,
     amountPerYear,
@@ -56,7 +54,7 @@ export const Analisis = ({
                 />
             </div>
             <div className='pb-10 flex justify-between'>
-                <PieChart pieSeries={pieSeries} pieLabels={pieLabels} />
+                <PieChart dataset={data} title={"Top 10 emojis"} desc={"Los Emojis mas usados en la conversacion"} />
                 <BasicChart
                     title={'Top 10 Multimedia'}
                     desc={

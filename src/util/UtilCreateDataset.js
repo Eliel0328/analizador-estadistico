@@ -53,7 +53,6 @@ const extractDataPoint = (line) => {
     const splitLine = line.split(' - ');
     const [date, time, format] = splitLine[0].split(' ');
     let message = splitLine.slice(1).join(' - ');
-    console.log(message);
 
     let author = null;
     if (isAuthor(message)) {

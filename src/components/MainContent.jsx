@@ -6,6 +6,10 @@ import {
     countOccurrencesByMonth,
     countOccurrencesByName,
 
+    countOccurrencesByWord,
+
+    countOccurrencesByWordByTopDate,
+
     countOccurrencesByYear,
 
     getDateTimeForBrushChar,
@@ -40,7 +44,6 @@ export const MainContent = () => {
 
     // Leer el archivo CSV
     const changeHandler = (file) => {
-        console.log(file);
         const reader = new FileReader();
         reader.onload = function (event) {
             const fileContent = event.target.result;
@@ -76,7 +79,6 @@ export const MainContent = () => {
         ];
 
         const aux = countOccurrencesByDate(data);
-        // console.log(countOccurrencesByWordByTopDate(data, aux));
 
         setGeneralStats(getGeneralDataFromCSV(data));
         setGeneralStatsForAuthors(dataForAuthors);
@@ -89,7 +91,6 @@ export const MainContent = () => {
         setAmountPerHour(countOccurrencesByHour(data));
         setDateTimeForBrushChar(getDateTimeForBrushChar(data));
 
-        // console.log(countOccurrencesByWord(data));
         setPieSeries(dataPieSeries.series);
         setPieLabels(dataPieSeries.labels);
     };
@@ -129,8 +130,6 @@ export const MainContent = () => {
                                 statsForAuthors={generalStatsForAuthors}
                                 seriesTop={top}
                                 seriesDays={days}
-                                pieSeries={pieSeries}
-                                pieLabels={pieLabels}
                                 topMultimedia={topMultimedia}
                                 topDate={topDate}
                                 amountPerYear={amountPerYear}
